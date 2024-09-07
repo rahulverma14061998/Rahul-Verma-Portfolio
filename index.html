@@ -3,10 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Images/Favicon.png">
     <link rel="stylesheet" href="style.css">
     <title>Rahul Verma</title>
 </head>
 <body>
-    
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="Images/Logo.png" alt="Portfolio" class="logo">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">Portfolio</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>UI/UX Designer</p>
+                <h1>Hi, I am <span>Rahul</span><br>from India</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- ----------------About -->
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="Images/MyImage.png" alt="user">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p><span>Full Stack Developer & Graphic Designer</span><br>
+                    
+                    I am a versatile full stack developer and graphic designer with a strong foundation in both web development and visual
+                    design. With expertise in the MERN stack (MongoDB, Express, React, Node.js), I build dynamic
+                    and responsive web applications. <br><br>On the creative side, I specialize in graphic design using Adobe Photoshop,
+                    Illustrator, and InDesign, crafting visually compelling digital assets.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web Development (MERN Stack)</span><br>HTML, CSS, JavaScript, NodeJS, React, MongoDB
+</li>
+                            <li><span>Graphic Designing</span><br>Adobe Photoshop, Adobe Illustrator, Adobe InDesign
+</li>
+                            <li><span>Programming</span><br>C, C++</li>
+                            <li><span>Tools</span><br>VS Code, Sublime Text, Atom
+</li>
+                            <li><span>Version Control</span><br>Git, GitHub
+</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2024</span><br>MERN Stack Developer</li>
+                            <li><span>2023 - 2024</span><br>Six months of Industrial training in Web Development</li>
+                            <li><span>2017 - 2023</span><br>Graphic Designer and Web Developer</li>
+                            <li><span>2022</span><br>Intern - Web Development</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2020  - 2024</span><br>Completed B.Tech. in Computer Science and Engineering</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+    let tablinks = document.getElementsByClassName("tab-links")
+
+    let tabcontents = document.getElementsByClassName("tab-contents")
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link")
+        document.getElementById(tabname).classList.add("active-tab")
+    }
+
+</script>
+
 </body>
 </html>
