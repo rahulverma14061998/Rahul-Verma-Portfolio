@@ -15,17 +15,19 @@
         <div class="container">
             <nav>
                 <img src="Images/Logo.png" alt="Portfolio" class="logo">
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Portfolio</a></li>
-                    <li><a href="">Contact</a></li>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
                 </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
                 <p>UI/UX Designer</p>
-                <h1>Hi, I am <span>Rahul</span><br>from India</h1>
+                <h1>Hi, I am <span>Rahul</span> Verma</h1>
             </div>
         </div>
     </div>
@@ -170,6 +172,39 @@
     </div>
 </div>
 
+<!-- --------------contact--------- -->
+
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact me</h1>
+                <p><i class="fa-solid fa-paper-plane fa-beat"></i> rahulverma14061998@gmail.com</p>
+                <p><i class="fa-solid fa-phone fa-beat"></i> +91 99191 82083</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/rahulvermarvrvrv/" target="_blank"><i class="fa-brands fa-facebook fa-beat"></i></a>
+                    <a href="" target="_blank"><i class="fa-brands fa-square-twitter fa-beat"></i></a>
+                    <a href="" target="_blank"><i class="fa-brands fa-instagram fa-beat"></i></a>
+                    <a href="" target="_blank"><i class="fa-brands fa-linkedin fa-beat"></i></a>
+                </div>
+                <a href="Files/Rahul Verma.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Made with <i class="fa-solid fa-heart fa-beat"></i> by Rahul Verma</p>
+    </div>
+</div>
+
 <script>
 
     let tablinks = document.getElementsByClassName("tab-links")
@@ -187,6 +222,39 @@
         document.getElementById(tabname).classList.add("active-tab")
     }
 
+</script>
+
+<script>
+
+    let sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+
+    function closemenu(){
+        sidemenu.style.right = "-200px"
+    }
+
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwDyik6nbQQWQHlnKBqou-RD_c9e67CWc5cDKrER1VMTQRnrmBDDDTvstfLdGWz9lEJ/exec'
+    const form = document.forms['submit-to-google-sheet']
+
+    const msg = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {msg.innerHTML = "Thank you for your message"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                }, 5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+    })
 </script>
 
 </body>
